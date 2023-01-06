@@ -9,6 +9,7 @@ export const Forms = styled(Form)`
 
 export const Input = styled(Field)`
   margin-top: 4px;
+  font-size: 16px;
   /* display: block; */
 `;
 export const Label = styled.label`
