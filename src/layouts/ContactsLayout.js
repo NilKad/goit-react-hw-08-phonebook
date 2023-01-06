@@ -1,5 +1,5 @@
 import { AuthProfile } from 'components/AuthProfile/AuthProfile';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import * as SC from './ContactsLayout.module';
 // import * as SC from
 

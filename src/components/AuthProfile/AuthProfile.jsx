@@ -1,4 +1,4 @@
-import { Button } from 'pages/FormStyles.module';
+// import { Button } from 'pages/FormStyles.module';
 import * as SC from './AuthProfile.module';
 
 export const AuthProfile = () => {
