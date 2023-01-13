@@ -1,9 +1,14 @@
+import { AuthMenu } from 'components/AuthMenu/AuthMenu';
 import { AuthProfile } from 'components/AuthProfile/AuthProfile';
+import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import { selectAuthIsLogin } from 'redux/selectors';
 import * as SC from './ContactsLayout.module';
 // import * as SC from
 
 export const ContactsLayout = () => {
+  const isLoggedIn = useSelector(selectAuthIsLogin);
+  // console.log()
   return (
     <>
       <SC.Header>
@@ -12,15 +17,7 @@ export const ContactsLayout = () => {
           <SC.NavMenuLink to="/">Home</SC.NavMenuLink>
           <SC.NavMenuLink to="contacts">Contacts</SC.NavMenuLink>
         </nav>
-        <div>
-          <SC.NavMenuLink to="login">Login</SC.NavMenuLink>
-          {/* <span> / </span> */}
-          <SC.NavMenuLink to="register">Register</SC.NavMenuLink>
-        </div>
-        <AuthProfile>
-          {/* <p>Welcome user</p>
-          <button>LogOut</button> */}
-        </AuthProfile>
+        {isLoggedIn ? <AuthProfile /> : <AuthMenu />}
       </SC.Header>
       <SC.Main>
         <Outlet />

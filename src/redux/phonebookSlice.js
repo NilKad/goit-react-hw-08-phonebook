@@ -3,7 +3,7 @@ import {
   getAllContacts,
   addContact,
   delContact,
-} from 'components/API/fetchContacts';
+} from 'redux/phonebookOperations';
 
 // const setContact = [
 //   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -26,8 +26,8 @@ export const contactsSlice = createSlice({
       state.isLoading = false;
     },
     [getAllContacts.rejected]: (state, { error }) => {
+      state.contactsList = [];
       state.isLoading = false;
-      // console.log('error payload: ', error);
       state.error = error;
     },
     [addContact.pending]: state => {

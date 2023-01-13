@@ -1,24 +1,35 @@
-import css from './Filter.module.css';
+// import css from './Filter.module.css';
 // import PropTypes from 'prop-types';
+import { Field, Formik, Form } from 'formik';
+// import * as SC from 'pages/FormStyles.module';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFilter } from 'redux/phonebookSlice';
+import * as SC from './Filter.module';
 
-export const Filter = ({ filterValue }) => {
-  const filter = useSelector(state => state.filterContact.filter);
+export const Filter = ({ emptyContacts, ...anyProps }) => {
+  // const filter = useSelector(state => state.filterContact.filter);
   const dispatch = useDispatch();
 
+  const initialValues = { filter: '' };
+
   const onInputFilterHandle = e => {
-    dispatch(updateFilter(e.currentTarget.value));
+    dispatch(updateFilter(e.target.value));
   };
 
   return (
-    <input
-      type="text"
-      name="filter"
-      className={css.input}
-      onInput={onInputFilterHandle}
-      value={filter}
-    />
+    <SC.FilterDiv>
+      <Formik initialValues={initialValues}>
+        <Form autoComplete="off">
+          <SC.Input
+            type="text"
+            name="filter"
+            emptycontacts={emptyContacts ? 'true' : 'false'}
+            onInput={onInputFilterHandle}
+            {...anyProps}
+          />
+        </Form>
+      </Formik>
+    </SC.FilterDiv>
   );
 };
 

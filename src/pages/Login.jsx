@@ -1,15 +1,19 @@
 import { Formik } from 'formik';
 import * as SC from './FormStyles.module';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { loginUser } from 'redux/authOperations';
 
 const initialValues = { email: '', password: '' };
 
 export const Login = () => {
+  const dispatch = useDispatch();
   const handleSubmit = (value, { resetForm }) => {
-    console.log(value);
+    // const user = { email: value.email.value, password: value.password.value };
+    // console.log('user: ', user);
+    console.log('value: ', value);
+    dispatch(loginUser(value));
     resetForm();
-    // console.log(action);
-    // action.resetForm;
   };
 
   const schema = Yup.object().shape({

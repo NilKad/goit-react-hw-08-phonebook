@@ -1,13 +1,14 @@
-import css from './ContactList.module.css';
+import * as SC from './ContactList.module';
+// import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
 
 export const ContactListItem = ({ element, children }) => {
   const { name, number } = element;
   return (
-    <li className={css.item}>
+    <SC.ContactsListItem>
       {name}: {number}
       {children}
-    </li>
+    </SC.ContactsListItem>
   );
 };
 

@@ -1,17 +1,28 @@
 import { Formik } from 'formik';
 import * as SC from './FormStyles.module';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { signUpUser } from 'redux/authOperations';
+// import { signUpUser } from '/API/API';
+// import API
 
 const initialValues = { email: '', password: '', RePassword: '' };
 
 export const Register = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (value, { resetForm }) => {
     console.log(value);
-    resetForm();
+    // dispatch(signUpUser())
+
+    // resetForm();
+
     // console.log(action);
     // action.resetForm;
   };
+
   const schema = Yup.object().shape({
+    youName: Yup.string().required(),
     email: Yup.string().email('Invalid email').required('Requared'),
     password: Yup.string()
       .min(6, 'Too Short!')
@@ -22,13 +33,33 @@ export const Register = () => {
       .required('Requared'),
   });
 
+  const handleRegister = async data => {
+    data.preventDefault();
+    const { youName: name, email, password } = data.target.elements;
+    const user = {
+      name: name.value,
+      email: email.value,
+      password: password.value,
+    };
+
+    // console.log(name.value, email.value, password.value);
+    console.log('dataOut: ', user);
+    dispatch(signUpUser(user));
+    // signUpUser(dataOut);
+  };
+
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={schema}
     >
-      <SC.Forms autoComplete="off">
+      <SC.Forms autoComplete="off" onSubmit={handleRegister}>
+        <SC.Label>
+          You name
+          <SC.Input type="text" name="youName" autoComplete="name" />
+          <SC.ErrorMes name="youName" component="span" />
+        </SC.Label>
         <SC.Label>
           Email
           <SC.Input type="text" name="email" autoComplete="username" />

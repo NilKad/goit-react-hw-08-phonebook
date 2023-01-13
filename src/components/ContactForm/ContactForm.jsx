@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-// import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
 import css from 'components/ContactForm/ContactForm.module.css';
-import { addContact } from 'components/API/fetchContacts';
+import { addContact } from 'redux/phonebookOperations';
 
 const ContactForm = () => {
   const contacts = useSelector(state => state.contacts.contactsList);
@@ -19,7 +18,6 @@ const ContactForm = () => {
       return false;
     }
     dispatch(addContact({ id, name, number }));
-    // console.log('ddd: ', ddd);
     return true;
   };
 
@@ -89,7 +87,7 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+// export default ContactForm;
 
 // ContactForm.propTypes = {
 //   onAddPhonebook: PropTypes.func.isRequired,
