@@ -1,10 +1,6 @@
 import axios from 'axios';
 const { createAsyncThunk } = require('@reduxjs/toolkit');
 
-// const { axios } = require('axios');
-
-// axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -31,7 +27,6 @@ const signUpUser = createAsyncThunk(
 
 const loginUser = createAsyncThunk(
   '/auth/login',
-  // async (user, { rejectWithValue }) => {
   async (user, action) => {
     console.log('action: ', action);
     try {
@@ -40,12 +35,6 @@ const loginUser = createAsyncThunk(
       console.log('ok login');
       return data;
     } catch (error) {
-      // console.log('error: ', error);
-      // console.log(
-      //   'authOperation catch error error.response.data: ',
-      //   error.response.data
-      // );
-      // return action.rejectWithValue(error.response);
       return action.rejectWithValue(error);
     }
   }

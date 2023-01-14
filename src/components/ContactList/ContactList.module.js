@@ -1,11 +1,4 @@
 import styled from 'styled-components';
-import { Filter } from 'components/Filter/Filter';
-
-// export const ServiceZone = styled.div`
-//   padding: 4px 0;
-//   margin-bottom: 8px;
-// `;
-
 export const ContactsList = styled.ul`
   font-size: 18px;
 `;

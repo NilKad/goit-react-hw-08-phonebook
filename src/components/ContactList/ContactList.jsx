@@ -1,9 +1,5 @@
-import * as SC from './ContactList.module';
 import { useEffect } from 'react';
-import { ContactListItem } from './ContactListItem';
 import { useDispatch, useSelector } from 'react-redux';
-// import { del } from 'redux/phonebookSlice';
-// import { delContact, getAllContacts } from 'redux/_phonebookOperations_old';
 import { Filter } from 'components/Filter/Filter';
 import {
   IconButton,
@@ -16,7 +12,6 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useSnackbar } from 'notistack';
 import { delContact, getAllContacts } from 'redux/phonebookOperations';
-// import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contacts.contactsList);
@@ -74,20 +69,6 @@ export const ContactList = () => {
             })}
           </TableBody>
         </Table>
-        // <SC.ContactsList>
-        //   {contactList.map(el => {
-        //     return (
-        //       <ContactListItem key={el.id} element={el}>
-        //         <SC.Button
-        //           type="button"
-        //           onClick={() => deletePhonebookID(el.id)}
-        //         >
-        //           Delete
-        //         </SC.Button>
-        //       </ContactListItem>
-        //     );
-        //   })}
-        // </SC.ContactsList>
       )}
     </>
   );

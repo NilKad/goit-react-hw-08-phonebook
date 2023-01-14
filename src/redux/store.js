@@ -13,7 +13,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// import storage = reduct
 const middleware = getDefaultMiddleware =>
   getDefaultMiddleware({
     serializableCheck: {
@@ -31,15 +30,11 @@ const persistAuthReducer = persistReducer(authPersistConfig, authSlice.reducer);
 
 export const store = configureStore({
   reducer: {
-    // contacts: persistedContactsReducer,
     contacts: contactsSlice.reducer,
     filterContact: filterSlice.reducer,
-    // authUser: authSlice.reducer,
-    // authUser: persistReducer(authPersistConfig, authSlice.reducer),
     authUser: persistAuthReducer,
   },
   middleware: middleware,
 });
 
 export const persistor = persistStore(store);
-// export { store };

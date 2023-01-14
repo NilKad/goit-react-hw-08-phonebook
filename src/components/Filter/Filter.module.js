@@ -11,7 +11,6 @@ export const Input = styled(Field)`
   border: 1px solid grey;
   display: block;
   outline: none;
-  height: 18px;
   border-radius: 2px;
   padding: 4px 8px;
   font-size: 16px;

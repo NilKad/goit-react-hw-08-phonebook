@@ -1,5 +1,4 @@
 import * as SC from './ContactList.module';
-// import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
 
 export const ContactListItem = ({ element, children }) => {

@@ -5,8 +5,3 @@ export const TextH2 = styled.h2`
   margin-bottom: 8px;
   //
 `;
-
-// export const ServiceZone = styled.div`
-//   padding: 4px 0;
-//   margin-bottom: 8px;
-// `;

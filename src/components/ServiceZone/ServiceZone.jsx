@@ -1,4 +1,3 @@
-// import { addContact } from 'redux/_phonebookOperations_old';
 import { Field, Form, Formik } from 'formik';
 import { useSnackbar } from 'notistack';
 import { useState } from 'react';
@@ -23,10 +22,12 @@ export const ServiceZone = () => {
       .required('Requared'),
     // .validate(),
     number: Yup.string()
-      // .matches("^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$", {
-      // .matches('/[a-zA-Z]', {
-      // message: '!!DSDS',
-      // })
+      // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+      // .matches(/^[a-zA-Zа-яА-Я]+(([ -][a-zA-Zа-яА-Я])?[a-zA-Zа-яА-Я]*)*$/, {
+      .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, {
+        // .matches(/+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/, {
+        message: 'Error, wrong fomat',
+      })
       // .min(6, 'Too Short!')
       // .max(16, 'Too Long!')
 
@@ -78,9 +79,9 @@ export const ServiceZone = () => {
               <SC.Input
                 type="text"
                 name="name"
-                // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                // required
-                // label="first name"
+              // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              // required
+              // label="first name"
               />
               <SC.ErrorMes name="name" component="span" />
             </SC.Label>
@@ -89,8 +90,9 @@ export const ServiceZone = () => {
               <SC.Input
                 type="tel"
                 name="number"
-                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               />
+              <SC.ErrorMes name="number" component="span" />
             </SC.Label>
             <SC.ButtonPlus type="submitt">+</SC.ButtonPlus>
           </SC.FormAddContact>

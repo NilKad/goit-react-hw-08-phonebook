@@ -1,13 +1,9 @@
-// import css from './Filter.module.css';
-// import PropTypes from 'prop-types';
-import { Field, Formik, Form } from 'formik';
-// import * as SC from 'pages/FormStyles.module';
-import { useDispatch, useSelector } from 'react-redux';
+import { Formik, Form } from 'formik';
+import { useDispatch } from 'react-redux';
 import { updateFilter } from 'redux/phonebookSlice';
 import * as SC from './Filter.module';
 
 export const Filter = ({ emptyContacts, ...anyProps }) => {
-  // const filter = useSelector(state => state.filterContact.filter);
   const dispatch = useDispatch();
 
   const initialValues = { filter: '' };
@@ -32,8 +28,3 @@ export const Filter = ({ emptyContacts, ...anyProps }) => {
     </SC.FilterDiv>
   );
 };
-
-// Filter.propTypes = {
-//   onInputHandle: PropTypes.func.isRequired,
-//   filterValue: PropTypes.string.isRequired,
-// };

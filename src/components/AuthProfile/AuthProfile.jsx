@@ -1,4 +1,3 @@
-// import { Button } from 'pages/FormStyles.module';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/authOperations';
 import { selectAuthUser } from 'redux/selectors';
