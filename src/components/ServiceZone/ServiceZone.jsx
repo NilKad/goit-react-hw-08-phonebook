@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from 'formik';
+import { Formik } from 'formik';
 import { useSnackbar } from 'notistack';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,7 +24,8 @@ export const ServiceZone = () => {
     number: Yup.string()
       // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
       // .matches(/^[a-zA-Zа-яА-Я]+(([ -][a-zA-Zа-яА-Я])?[a-zA-Zа-яА-Я]*)*$/, {
-      .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, {
+      // .matches(/^[+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, {
+      .matches(/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/, {
         // .matches(/+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/, {
         message: 'Error, wrong fomat',
       })
