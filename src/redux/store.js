@@ -25,7 +25,7 @@ const authPersistConfig = {
   storage,
   whitelist: ['token'],
 };
-
+//
 const persistAuthReducer = persistReducer(authPersistConfig, authSlice.reducer);
 
 export const store = configureStore({
